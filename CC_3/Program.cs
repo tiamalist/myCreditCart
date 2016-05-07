@@ -103,7 +103,7 @@ namespace CC_3
             Array.Reverse(number);              // Реверс, для можливості дій над числами з непарним індексом
             s = new string(number);
             
-            int[] mas = new int[16];
+            int[] mas = new int[23];
             int i = 0;
             foreach (int n in s)
             {
