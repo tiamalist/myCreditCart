@@ -1,0 +1,6 @@
+D:\C#\CC_3\CC_3\bin\Debug\CC_3.exe.config
+D:\C#\CC_3\CC_3\bin\Debug\CC_3.exe
+D:\C#\CC_3\CC_3\bin\Debug\CC_3.pdb
+D:\C#\CC_3\CC_3\obj\Debug\CC_3.csprojResolveAssemblyReference.cache
+D:\C#\CC_3\CC_3\obj\Debug\CC_3.exe
+D:\C#\CC_3\CC_3\obj\Debug\CC_3.pdb
