@@ -12,6 +12,7 @@ namespace CC_3
         static void Main(string[] args)
         {
             Console.WriteLine("Введiть номер кредитної карти:");
+<<<<<<< HEAD
             string NCard = Console.ReadLine();
             Console.WriteLine("Вендор карти");
             GetCreditCardVendor(NCard);
@@ -19,11 +20,21 @@ namespace CC_3
             IsCreditCardNumberValid(NCard);
             Console.WriteLine("Пошук наступного номера карти");
             GenerateNextCreditCardNumber(NCard);
+=======
+           string NCard = Console.ReadLine();
+            Console.WriteLine("Вендор карти");
+           GetCreditCardVendor(NCard);
+            Console.WriteLine("Перевiрка валiдностi номера карти");
+           IsCreditCardNumberValid(NCard);
+            Console.WriteLine("Пошук наступного номера карти");
+           GenerateNextCreditCardNumber(NCard);                      
+>>>>>>> 2870ace21635bb1194e569e0ae407ee372150e98
             Console.WriteLine("End");
             Console.ReadLine();
         }
         static public string GetCreditCardVendor(string s)
         {
+<<<<<<< HEAD
             // Вичначення точної довжини номера карти, без врахування пробілів та розділових знаків.
             string KS = "";                         //
                                                     // 
@@ -60,11 +71,18 @@ namespace CC_3
                         Console.ReadLine();
                         Environment.Exit(-1);
                     }
+=======
+            switch (s[0])
+            {
+                case '4':
+                    Console.WriteLine("VISA");
+>>>>>>> 2870ace21635bb1194e569e0ae407ee372150e98
                     break;
                 case '3':
                     switch (s[1])
                     {
                         case '4':
+<<<<<<< HEAD
                             if (KS.Length == 15)
                             {
                                 Console.WriteLine("Номер вiдповiдає кiлькостi символiв");
@@ -102,6 +120,15 @@ namespace CC_3
                                 Console.ReadLine();
                                 Environment.Exit(-1);
                             }
+=======
+                            Console.WriteLine("American Express");
+                            break;
+                        case '7':
+                            Console.WriteLine("American Express");
+                            break;
+                        case '5':
+                            Console.WriteLine("JCB"); //JCB
+>>>>>>> 2870ace21635bb1194e569e0ae407ee372150e98
                             break;
                         default:
                             Console.WriteLine("Unknown");
@@ -113,6 +140,7 @@ namespace CC_3
                     {
                         // Вендор MasterCard
                         case '1':
+<<<<<<< HEAD
                             if (KS.Length == 16)
                             {
                                 Console.WriteLine("Номер вiдповiдає кiлькостi символiв");
@@ -242,6 +270,37 @@ namespace CC_3
                                 Console.ReadLine();
                                 Environment.Exit(-1);
                             }
+=======
+                            Console.WriteLine("MasterCard");
+                            break;
+                        case '2':
+                            Console.WriteLine("MasterCard");
+                            break;
+                        case '3':
+                            Console.WriteLine("MasterCard");
+                            break;
+                        case '4':
+                            Console.WriteLine("MasterCard");
+                            break;
+                        case '5':
+                            Console.WriteLine("MasterCard");
+                            break;
+                        // Вендор Maestro
+                        case '0':
+                            Console.WriteLine("Maestro");
+                            break;
+                        case '6':
+                            Console.WriteLine("Maestro");
+                            break;
+                        case '7':
+                            Console.WriteLine("Maestro");
+                            break;
+                        case '8':
+                            Console.WriteLine("Maestro");
+                            break;
+                        case '9':
+                            Console.WriteLine("Maestro");
+>>>>>>> 2870ace21635bb1194e569e0ae407ee372150e98
                             break;
                         default:
                             Console.WriteLine("Unknown");
@@ -249,6 +308,7 @@ namespace CC_3
                     }
                     break;
                 case '6':
+<<<<<<< HEAD
                     if (KS.Length >= 12 && KS.Length <= 19)
                     {
                         Console.WriteLine("Номер вiдповiдає кiлькостi символiв");
@@ -260,17 +320,25 @@ namespace CC_3
                         Console.ReadLine();
                         Environment.Exit(-1);
                     }
+=======
+                    Console.WriteLine("Maestro");
+>>>>>>> 2870ace21635bb1194e569e0ae407ee372150e98
                     break;
                 default:
                     Console.WriteLine("Unknown");
                     break;
             }
+<<<<<<< HEAD
             return s;
+=======
+          return s;
+>>>>>>> 2870ace21635bb1194e569e0ae407ee372150e98
 
         }
         static bool IsCreditCardNumberValid(string s)
         {
 
+<<<<<<< HEAD
             string NewNumber = "";
 
             for (int j = 0; j < s.Length; j++)
@@ -298,6 +366,17 @@ namespace CC_3
             foreach (int n in NewNumber)
             {
                 mas[i] = (n - 48) * (i % 2 == 0 ? 1 : 2);
+=======
+            char[] number = s.ToCharArray();    // Конвертація строки в масив символів
+            Array.Reverse(number);              // Реверс, для можливості дій над числами з непарним індексом
+            s = new string(number);
+            
+            int[] mas = new int[23];
+            int i = 0;
+            foreach (int n in s)
+            {
+                mas[i] = (n - 48) * (i % 2 == 0 ? 1 : 2);  
+>>>>>>> 2870ace21635bb1194e569e0ae407ee372150e98
                 i++;
             }
 
@@ -309,6 +388,7 @@ namespace CC_3
 
             Console.WriteLine(sum);
             Console.WriteLine("CreditCard is valid {0}", sum % 10 == 0); // Перевірка на кратність 10
+<<<<<<< HEAD
 
             return sum % 10 == 0;
 
@@ -320,6 +400,19 @@ namespace CC_3
             for (int i = 0; i < s.Length; i++)
             {
                 if (s[i] != ' ')
+=======
+                        
+            return sum % 10 == 0;
+
+        }        
+        static string GenerateNextCreditCardNumber(string s)
+        {
+            string NewCC = "";
+            
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] != ' ')                
+>>>>>>> 2870ace21635bb1194e569e0ae407ee372150e98
                 {
                     NewCC = NewCC + s[i];         // Формуванння нового номера кредитної карти на основі переданого з клавіатури
                 }
@@ -327,6 +420,7 @@ namespace CC_3
             long cash = Int64.Parse(NewCC);       // Конвертація строки в число, для можливості інкременту нового номера карти
             pNewCC:                               // Мітка переходу 
             cash++;
+<<<<<<< HEAD
             NewCC = Convert.ToString(cash);       // Конвертація чисда в строку                        
             Console.WriteLine(NewCC);
 
@@ -408,6 +502,15 @@ namespace CC_3
             if (IsCreditCardNumberValid(NewCC))  // Перевірка валідності нового номера карти
             {
                 Console.WriteLine("Next Credit Card is valid {0}", IsCreditCardNumberValid(NewCC));
+=======
+            NewCC = Convert.ToString(cash);       // Конвертація чисда в строку
+
+            Console.WriteLine(NewCC);
+            
+            if (IsCreditCardNumberValid(NewCC))  // Перевірка валідності нового номера карти
+            {
+                Console.WriteLine("Next Credit Card is valid {0}", IsCreditCardNumberValid(NewCC)); 
+>>>>>>> 2870ace21635bb1194e569e0ae407ee372150e98
             }
             else
                 goto pNewCC;                      // Перехід на до мітки для повторення збільшення значення номера карти
